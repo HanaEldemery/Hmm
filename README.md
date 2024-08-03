@@ -1,1 +1,11 @@
-# Hmm
+# Media Engineering
+I implemented an encoding and decoding technique on an image using Python, numpy arrays, and OpenCV.
+I wrote a function named img_to_bin to convert a grayscale image to a binary one using a threshold of 128. I used OpenCV to read the image and numpy to perform the conversion. For each pixel in the grayscale image, I set the corresponding pixel in the binary image to 1 if its value was greater than or equal to 128 and to 0 otherwise.
+Next, I implemented the function get_indices_of_starting_ones to identify the starting indices of sequences of ones in a specified row of a 2D binary array. I iterated through the row, detecting transitions from 0 to 1 to find the starting points of sequences of ones and stored these indices in a list.
+I wrote the function get_length_of_runs to determine the lengths of these sequences of ones in the specified row. I iterated through the row again, counting the length of each continuous sequence of ones and storing these lengths in a list.
+Then, I implemented the encoding_image function to encode the entire binary image into a string. For each row in the binary image, I used the starting indices and lengths of the sequences of ones to create the encoded substrings, which I then concatenated to form the final encoded string.
+For the decoding part of the project, I started with writing the function split_string. This function splits the encoded string to extract substrings corresponding to a specific row number. It parsed the encoded string, identified the substrings that matched the given row number, and returned them as a list.
+I implemented the decode_row function to decode these substrings back into a binary row. I created a row of zeros with the specified width and used the encoded substrings to place sequences of ones at the correct positions in the row.
+Finally, I wrote the construct_image function to reconstruct the entire binary image from the encoded string. I initialized a 2D array of zeros with the given dimensions and used the decode_row function to fill each row with the appropriate sequences of ones based on the encoded data.
+I tested my functions using test cells to ensure they worked correctly with various images and scenarios. 
+
